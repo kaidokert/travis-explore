@@ -1,0 +1,15 @@
+language: cpp
+
+sudo: false
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode6.4
+      env: COMPILER='clang++'
+    - os: osx
+      osx_image: xcode8.2
+      env: COMPILER='clang++'
+      
+script:
+  - ls -la /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi
