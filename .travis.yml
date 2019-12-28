@@ -18,5 +18,5 @@ matrix:
       osx_image: xcode11.3
       
 script:
-  - find / -xdev -perm +111 -name "*lldb*" -type f 2>&1 | egrep -v "Permission denied|Operation not permitted" || true
+  - find /usr/bin /Library/Developer /Applications/Xcode* -perm +111 -path "*bin/lldb*" -type f || true
   - ls -la /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi
