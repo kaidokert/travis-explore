@@ -18,5 +18,5 @@ matrix:
       osx_image: xcode11.3
       
 script:
-  - find /usr/bin /Library/Developer /Applications/Xcode* -perm +111 -path "*bin/lldb*" -type f || true
+  - find /usr/bin /Library/Developer /Applications/Xcode* -perm +111 -path "*bin/lldb*" -type f -exec ls -laF {} \;  -exec {} --version \; || true
   - ls -la /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi
