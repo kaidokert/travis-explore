@@ -10,8 +10,10 @@ matrix:
       before_install:
       - choco install python --debug --verbose
       - dir C:\Python38
+      - dir C:\Python38\Scripts
       - choco install python2 --debug --verbose
       - dir C:\Python27
+      - dir C:\Python27\Scripts
     - os: osx
       osx_image: xcode6.4
 #    - os: osx
