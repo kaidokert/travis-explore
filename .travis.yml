@@ -9,17 +9,19 @@ matrix:
     - os: windows
       before_install:
       - choco install python --debug --verbose
+      - dir C:\Python38
       - choco install python2 --debug --verbose
+      - dir C:\Python27
     - os: osx
       osx_image: xcode6.4
-    - os: osx
-      osx_image: xcode7.3
-    - os: osx
-      osx_image: xcode8.3
-    - os: osx
-      osx_image: xcode9.4
-    - os: osx
-      osx_image: xcode10.3
+#    - os: osx
+#      osx_image: xcode7.3
+#    - os: osx
+#      osx_image: xcode8.3
+#    - os: osx
+#      osx_image: xcode9.4
+#    - os: osx
+#      osx_image: xcode10.3
     - os: osx
       osx_image: xcode11.3
       
