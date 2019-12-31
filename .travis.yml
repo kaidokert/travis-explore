@@ -25,5 +25,6 @@ script:
   - python --version
   - python3 --version || true
   - pip install --user requests || true
+  - pip3 install --user requests || true
   - find /usr/bin /Library/Developer /Applications/Xcode* -perm +111 -path "*bin/lldb*" -type f -exec ls -laF {} \;  -exec {} --version \; -exec sh -c "{} --help | egrep MI" \; || true
 #  - ls -la /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi
