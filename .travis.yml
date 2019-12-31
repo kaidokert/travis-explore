@@ -8,7 +8,7 @@ matrix:
       dist: bionic
     - os: windows
       before_install:
-      - choco install python  
+      - choco  -d -v install python  
     - os: osx
       osx_image: xcode6.4
     - os: osx
