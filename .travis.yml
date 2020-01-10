@@ -12,30 +12,17 @@ matrix:
       - choco install python --debug --verbose
       - ls C:/Python38 C:/Python38/Scripts
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
-    - os: windows
-      name: "Python 2.7 on Windows"
-      before_install:
-      - choco install python2 --debug --verbose
-      - ls C:/Python27 C:/Python27/Scripts
-      env: PATH=/c/Python27:/c/Python27/Scripts:$PATH      
     - os: osx
-      osx_image: xcode6.4
-#    - os: osx
-#      osx_image: xcode7.3
-#    - os: osx
-#      osx_image: xcode8.3
-#    - os: osx
-#      osx_image: xcode9.4
-#    - os: osx
-#      osx_image: xcode10.3
+      osx_image: xcode7.3
     - os: osx
       osx_image: xcode11.3
       
 script:
-  - cmake --version
-  - python --version
+  - echo $TRAVIS_OS_NAME
   - python3 --version || true
-  - pip install --user requests || true
   - pip3 install --user requests || true
-  - find /usr/bin /Library/Developer /Applications/Xcode* -perm +111 -path "*bin/lldb*" -type f -exec ls -laF {} \;  -exec {} --version \; -exec sh -c "{} --help | egrep MI" \; || true
-#  - ls -la /Applications/Xcode.app/Contents/Developer/usr/bin/lldb-mi
+  - |
+    if [ "$TRAVIS_OS_NAME" != "windows" ]; then
+      echo "Not windows"
+      find / -xdev -perm +111 -type f -name python 2>&1 | egrep -v "not permitted"
+    fi
