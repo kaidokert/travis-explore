@@ -4,23 +4,23 @@ matrix:
   include:
     - os: linux
       dist: xenial
-      env: PYENV_VERSION=3.7.1
+#      env: PYENV_VERSION=3.7.1
     - os: linux
       dist: bionic
-      env: PYENV_VERSION=3.7.1
+#      env: PYENV_VERSION=3.7.1
     - os: windows
       name: "Python 3.8 on Windows"
       before_install:
       - choco install python --debug --verbose
       - ls C:/Python38 C:/Python38/Scripts
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
-      env: PYENV_VERSION=3.7.1
+#      env: PYENV_VERSION=3.7.1
     - os: osx
       osx_image: xcode7.3
-      env: PYENV_VERSION=3.7.1
+#      env: PYENV_VERSION=3.7.1
     - os: osx
       osx_image: xcode11.3
-      env: PYENV_VERSION=3.7.1
+#      env: PYENV_VERSION=3.7.1
       
 script:
   - echo $TRAVIS_OS_NAME
