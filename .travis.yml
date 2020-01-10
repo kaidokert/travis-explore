@@ -4,10 +4,10 @@ matrix:
   include:
     - os: linux
       dist: xenial
-#      env: PYENV_VERSION=3.7.1
+      env: PYENV_VERSION=3.7
     - os: linux
       dist: bionic
-#      env: PYENV_VERSION=3.7.1
+      env: PYENV_VERSION=3.7
     - os: windows
       name: "Python 3.8 on Windows"
       before_install:
@@ -29,6 +29,7 @@ script:
   - pip3 install --user requests || true
   - |
     if [ "$TRAVIS_OS_NAME" != "windows" ]; then
+      pyenv install -s 3.7
       echo "Not windows"
       find / -xdev -perm -111 -type f -name "python*" 2>&1 | \
         egrep -v "not permitted|Permission denied"
