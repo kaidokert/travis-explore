@@ -24,6 +24,7 @@ matrix:
       
 script:
   - echo $TRAVIS_OS_NAME
+  - pyenv versions || true
   - python3 --version || true
   - pip3 install --user requests || true
   - |
