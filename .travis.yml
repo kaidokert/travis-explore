@@ -1,5 +1,11 @@
 language: cpp
 
+cache:
+  pip: true
+  directories:
+    - $HOME/.pyenv_cache
+    - $HOME/.pyenv
+    
 matrix:
   include:
     - os: linux
@@ -25,11 +31,11 @@ matrix:
 script:
   - echo $TRAVIS_OS_NAME
   - pyenv versions || true
+  - pyenv install -s 3.7
   - python3 --version || true
   - pip3 install --user requests || true
   - |
     if [ "$TRAVIS_OS_NAME" != "windows" ]; then
-      pyenv install -s 3.7
       echo "Not windows"
       find / -xdev -perm -111 -type f -name "python*" 2>&1 | \
         egrep -v "not permitted|Permission denied"
