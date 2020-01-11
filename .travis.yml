@@ -35,7 +35,7 @@ matrix:
 script:
   - echo $TRAVIS_OS_NAME
   - pyenv versions || true
-  - pyenv install -s 3.7
+  - pyenv install -s 3.7 || pyenv install -s 3.7.0 || pyenv install -s miniconda-3.7.0
   - python3 --version || true
   - pip3 install --user requests || true
   - |
