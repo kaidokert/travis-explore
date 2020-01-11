@@ -5,7 +5,6 @@ cache:
   directories:
     - $HOME/.pyenv_cache
     - $HOME/.pyenv
-    - $HOME/Library/Caches/Homebrew    
 
 matrix:
   include:
@@ -38,9 +37,5 @@ script:
   - echo $TRAVIS_OS_NAME
   - pyenv versions
   - python3 --version
-  - pip3 install --user requests
-  - |
-    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      find /Users /System /usr -xdev -perm -111 -type f -name "python*" -not -name "*-config" 2>&1 | \
-        egrep -v "not permitted|Permission denied"
-    fi
+  - pip3 install --user conan
+
