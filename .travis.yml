@@ -27,10 +27,7 @@ matrix:
       osx_image: xcode11.3
       
 script:
-  - echo $TRAVIS_OS_NAME
-  - pyenv versions
   - python3 --version
   - pip3 install --user conan
-  - find ~ -name conan
   - conan --version
 
