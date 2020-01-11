@@ -34,9 +34,9 @@ matrix:
       
 script:
   - echo $TRAVIS_OS_NAME
-  - pyenv versions || true
-  - python3 --version || true
-  - pip3 install --user requests || true
+  - pyenv versions
+  - python3 --version
+  - pip3 install --user requests
   - |
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       find /Users /System /usr -xdev -perm -111 -type f -name "python*" -not -name "*-config" 2>&1 | \
