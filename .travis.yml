@@ -6,7 +6,7 @@ cache:
     - $HOME/.pyenv_cache
     - $HOME/.pyenv
 
-env: PYENV_VERSION=3.7 PATH=~/Library/Python/3.7/bin/conan
+env: PYENV_VERSION=3.7 PATH=~/Library/Python/3.7/bin
 
 matrix:
   include:
