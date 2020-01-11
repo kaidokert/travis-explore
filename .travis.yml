@@ -20,6 +20,12 @@ matrix:
       name: "Xcode 8.3"
       osx_image: xcode8.3
       before_script:
+        - pyenv install -s 3.7.0 || pyenv install -s 3.7 || pyenv install -s 3
+    - os: osx
+      name: "Xcode 9.4"
+      osx_image: xcode9.4
+      before_script:
+        - pyenv install -s 3.7.0 || pyenv install -s 3.7 || pyenv install -s 3
     - os: osx
       name: "Xcode 11.3"
       osx_image: xcode11.3
