@@ -17,8 +17,8 @@ matrix:
       dist: bionic
       env: PYENV_VERSION=3.7
     - os: osx
-      name: "Xcode 8"
-      osx_image: xcode8
+      name: "Xcode 8.3"
+      osx_image: xcode8.3
       before_script:
     - os: osx
       name: "Xcode 11.3"
@@ -31,6 +31,6 @@ script:
   - pip3 install --user requests || true
   - |
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      find /Users /System /usr -xdev -perm -111 -type f -name "python*" -not name "*-config" 2>&1 | \
+      find /Users /System /usr -xdev -perm -111 -type f -name "python*" -not -name "*-config" 2>&1 | \
         egrep -v "not permitted|Permission denied"
     fi
