@@ -21,6 +21,7 @@ matrix:
       osx_image: xcode8.3
       addons:
         homebrew:
+          update: true
           packages: python3      
     - os: osx
       name: "Xcode 9.4"
