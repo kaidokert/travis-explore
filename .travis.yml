@@ -31,4 +31,6 @@ script:
   - pyenv versions
   - python3 --version
   - pip3 install --user conan
+  - find ~ -name conan
+  - conan --version
 
