@@ -17,13 +17,6 @@ matrix:
       dist: bionic
       env: PYENV_VERSION=3.7
     - os: osx
-      name: "Xcode 8.3"
-      osx_image: xcode8.3
-      addons:
-        homebrew:
-          update: true
-          packages: python3      
-    - os: osx
       name: "Xcode 9.4"
       osx_image: xcode9.4
       addons:
