@@ -16,31 +16,21 @@ matrix:
       name: "Bionic 18.04"
       dist: bionic
       env: PYENV_VERSION=3.7
-    - os: windows
-      name: "Python 3.8 on Windows"
-      before_install:
-      - choco install python --debug --verbose
-      - ls C:/Python38 C:/Python38/Scripts
-      env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
-#      env: PYENV_VERSION=3.7.1
     - os: osx
-      name: "Xcode 7.3"
-      osx_image: xcode7.3
-#      env: PYENV_VERSION=3.7.1
+      name: "Xcode 8"
+      osx_image: xcode8
+      before_script:
     - os: osx
       name: "Xcode 11.3"
       osx_image: xcode11.3
-#      env: PYENV_VERSION=3.7.1
       
 script:
   - echo $TRAVIS_OS_NAME
   - pyenv versions || true
-  - pyenv install -s 3.7 || pyenv install -s 3.7.0 || pyenv install -s miniconda-3.7.0
   - python3 --version || true
   - pip3 install --user requests || true
   - |
-    if [ "$TRAVIS_OS_NAME" != "windows" ]; then
-      echo "Not windows"
-      find / -xdev -perm -111 -type f -name "python*" 2>&1 | \
+    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      find /Users /System /usr -xdev -perm -111 -type f -name "python*" -not name "*-config" 2>&1 | \
         egrep -v "not permitted|Permission denied"
     fi
