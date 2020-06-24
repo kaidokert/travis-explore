@@ -30,6 +30,10 @@ matrix:
 #      osx_image: xcode10.3
     - os: osx
       osx_image: xcode11.3
+    - os: osx:
+      osx_image: xcode11.6
+      before_install:
+        - uname -r
       
 script:
   - cmake --version
